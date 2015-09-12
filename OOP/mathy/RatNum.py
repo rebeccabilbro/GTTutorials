@@ -21,12 +21,6 @@ class RationalNumber:
         self.n = numerator
         self.d = denominator
 
-    def __str__(self):
-        return "%s/%s" % (self.n, self.d)
-
-    __repr__ = __str__
-
-
     def __add__(self, other):
         '''Addition'''
         if not isinstance(other, RationalNumber):
@@ -63,8 +57,37 @@ class RationalNumber:
         n2, d2 = other.n, other.d
         return RationalNumber(n1*d2, d1*n2)
 
+    def __str__(self):
+        return "%s/%s" % (self.n, self.d)
+
+    __repr__ = __str__
+
+
+class Integer(RationalNumber):
+
+    def __init__(self,number):
+        self.n = number
+        self.d = 1
+
+
+
+
+
 
 if __name__ == "__main__":
-    x = RationalNumber(1,2)
-    y = RationalNumber(3,2)
-    print y*x
+    # x = RationalNumber(1,2)
+    # y = RationalNumber(3,2)
+    # print "The first number is %s" %x
+    # print "The second number is %s" %y
+    # print "Their sum is %s" %(x+y)
+    # print "Their product is %s" %(x*y)
+    # print "Their difference is %s" %(x-y)
+    # print "Their quotient is %s" %(x/y)
+    q = Integer(5)
+    r = Integer(6)
+    print "%s is an integer expressed as a rational number" %q
+    print "So is %s" %r
+    print "When you add them you get %s" %(q+r)
+    print "When you multiply them you get %s" %(q*r)
+    print "When you subtract them you get %s" %(q-r)
+    print "When you divide them you get %s" %(q/r)
